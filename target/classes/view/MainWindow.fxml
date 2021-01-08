@@ -5,71 +5,71 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="357.0" prefWidth="477.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ro.mta.se.lab.controller.MainWindowsController">
-   <children>
-      <Label fx:id="Label1" layoutX="41.0" layoutY="41.0" prefHeight="33.0" prefWidth="105.0" text="Country:">
-         <font>
-            <Font size="20.0" />
-         </font></Label>
-      <ComboBox layoutX="26.0" layoutY="75.0" prefWidth="150.0" />
-      <Label layoutX="300.0" layoutY="42.0" text="City:">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <ComboBox layoutX="259.0" layoutY="75.0" prefWidth="150.0" />
-      <Label layoutX="41.0" layoutY="138.0" text="Bucharest">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="41.0" layoutY="175.0" text="Date">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="41.0" layoutY="213.0" text="Description">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="258.0" layoutY="138.0" text="Precipitation:">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="258.0" layoutY="176.0" text="Humidity:">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="258.0" layoutY="217.0" text="Wind:">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="383.0" layoutY="138.0" text="50%">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="355.0" layoutY="176.0" text="99%">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="316.0" layoutY="218.0" text="100 Km/h">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="63.0" layoutY="278.0" text="21">
-         <font>
-            <Font size="39.0" />
-         </font>
-      </Label>
-      <Label layoutX="102.0" layoutY="264.0" nodeOrientation="LEFT_TO_RIGHT" text="ºC | ºF">
-         <font>
-            <Font size="18.0" />
-         </font></Label>
-   </children>
+    <children>
+        <Label fx:id="Label1" layoutX="41.0" layoutY="41.0" prefHeight="33.0" prefWidth="105.0" text="Country:">
+            <font>
+                <Font size="20.0" />
+            </font></Label>
+        <ComboBox layoutX="26.0" layoutY="75.0" prefWidth="150.0" />
+        <Label layoutX="299.0" layoutY="42.0" text="City:">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <ComboBox layoutX="257.0" layoutY="75.0" prefWidth="150.0" />
+        <Label layoutX="41.0" layoutY="138.0" text="Bucharest">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="41.0" layoutY="175.0" text="Date">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="41.0" layoutY="213.0" text="Description">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="258.0" layoutY="136.0" text="Precipitation:">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="257.0" layoutY="174.0" text="Humidity:">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="258.0" layoutY="213.0" text="Wind:">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="383.0" layoutY="138.0" text="50%">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="357.0" layoutY="176.0" text="99%">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="318.0" layoutY="214.0" text="100 Km/h">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="63.0" layoutY="278.0" text="21">
+            <font>
+                <Font size="39.0" />
+            </font>
+        </Label>
+        <Label layoutX="102.0" layoutY="264.0" nodeOrientation="LEFT_TO_RIGHT" text="ºC | ºF">
+            <font>
+                <Font size="18.0" />
+            </font></Label>
+    </children>
 </AnchorPane>
