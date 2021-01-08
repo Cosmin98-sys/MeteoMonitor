@@ -1,22 +1,22 @@
 package ro.mta.se.lab;
 
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
+import org.json.simple.*;
+import org.json.simple.parser.*;
+import ro.mta.se.lab.model.WeatherInfos;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Map;
 
 public class WeatherUtility {
     static final String apiToken = "f38c2313a44bec9a3dcf0ba183189e70";
     static final String baseLink = "https://api.openweathermap.org/data/2.5/weather?";
 
-
     private static WeatherInfos getInfos(String link) {
-        WeatherInfos localInfos = null;
+        WeatherInfos localInfos = new WeatherInfos();
         try {
             String finalLink = baseLink + link;
             finalLink = finalLink + "&appid=" + apiToken;
@@ -33,7 +33,18 @@ public class WeatherUtility {
             }
 
             JSONObject object = (JSONObject) JSONValue.parse(sb.toString());
-            
+            Map main = (Map)object.get("main");
+            localInfos.setTemperature(convertKelvinToCelsius((double)main.get("temp")));
+            double value = (double)main.get("temp");
+            localInfos.setHumidity((float)value);
+
+            Map wind = (Map)object.get("wind");
+            value = (double) wind.get("speed");
+            localInfos.setWind((float) value);
+
+            JSONArray jsonArray = (JSONArray) object.get("weather");
+            Map weather = (Map) jsonArray.iterator().next();
+            localInfos.setDescription((String) weather.get("description"));
 
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
@@ -57,5 +68,9 @@ public class WeatherUtility {
     static public WeatherInfos searchForInfos(double lat, double longit) {
         String searchLink = "lat=" + lat + "&lon=" + longit;
         return getInfos(searchLink);
+    }
+
+    private static float convertKelvinToCelsius(double kelvin) {
+        return (float) (kelvin - 273.15);
     }
 }
