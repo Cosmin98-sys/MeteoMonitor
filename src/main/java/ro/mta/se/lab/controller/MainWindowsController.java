@@ -7,8 +7,6 @@ import ro.mta.se.lab.WeatherUtility;
 import ro.mta.se.lab.model.CityInfo;
 import ro.mta.se.lab.model.WeatherInfos;
 
-import java.awt.font.FontRenderContext;
-import java.net.MalformedURLException;
 import java.util.ArrayList;
 
 public class MainWindowsController {
@@ -43,14 +41,13 @@ public class MainWindowsController {
     private ComboBox<String> cityComboBox;
 
     @FXML
-    private void initialize() throws MalformedURLException {
+    private void initialize() {
 
         WeatherInfos infos = WeatherUtility.searchForInfos("Bucharest");
         iconLabel.setGraphic(new ImageView("http://openweathermap.org/img/w/"+infos.getIcon()+".png"));
-        System.out.println("da");
     }
 
-    public void getCities(ArrayList<CityInfo> listOfCities){
+    public MainWindowsController(ArrayList<CityInfo> listOfCities){
         cities = new ArrayList<CityInfo>();
         cities.addAll(listOfCities);
     }
