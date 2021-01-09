@@ -10,13 +10,13 @@
             <font>
                 <Font size="20.0" />
             </font></Label>
-        <ComboBox fx:id="countryComboBox" layoutX="26.0" layoutY="75.0" prefWidth="150.0" />
+        <ComboBox fx:id="countryComboBox" layoutX="26.0" layoutY="75.0" onAction="#countryComboBoxChange" prefWidth="150.0" />
         <Label layoutX="299.0" layoutY="42.0" text="City:">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
-        <ComboBox fx:id="cityComboBox" layoutX="257.0" layoutY="75.0" prefWidth="150.0" />
+        <ComboBox fx:id="cityComboBox" layoutX="257.0" layoutY="75.0" onAction="#cityComboBoxChange" prefWidth="150.0" />
         <Label fx:id="cityNameLabel" layoutX="26.0" layoutY="126.0" text="City Name">
             <font>
                 <Font size="20.0" />

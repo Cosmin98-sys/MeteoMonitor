@@ -41,14 +41,47 @@ public class MainWindowsController {
     private ComboBox<String> cityComboBox;
 
     @FXML
-    private void initialize() {
+    private void countryComboBoxChange(){
+        cityComboBox.getItems().clear();
+        String country = countryComboBox.getSelectionModel().getSelectedItem();
+        for (CityInfo it : cities){
+            if(it.getCountryCode().equals(country)){
+                cityComboBox.getItems().add(it.getCityName());
+            }
+        }
+    }
 
-        WeatherInfos infos = WeatherUtility.searchForInfos("Bucharest");
+    @FXML
+    private void cityComboBoxChange(){
+        String currentCity = cityComboBox.getSelectionModel().getSelectedItem();
+        String currentCountry = countryComboBox.getSelectionModel().getSelectedItem();
+        WeatherInfos infos = WeatherUtility.searchForInfos(currentCity,currentCountry);
         iconLabel.setGraphic(new ImageView("http://openweathermap.org/img/w/"+infos.getIcon()+".png"));
     }
 
+    @FXML
+    private void initialize() {
+
+        for ( CityInfo it:cities ) {
+            if(verifyCountry(countryComboBox,it.getCountryCode()))
+                countryComboBox.getItems().add(it.getCountryCode());
+        }
+
+    }
+
+    boolean verifyCountry(ComboBox<String>comboBox,String country){
+
+        for ( String it: countryComboBox.getItems()) {
+            if(it.equals(country)){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public MainWindowsController(ArrayList<CityInfo> listOfCities){
-        cities = new ArrayList<CityInfo>();
+        cities = new ArrayList<>();
         cities.addAll(listOfCities);
     }
 }
