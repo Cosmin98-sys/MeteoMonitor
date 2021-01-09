@@ -35,12 +35,12 @@ public class WeatherUtility {
             JSONObject object = (JSONObject) JSONValue.parse(sb.toString());
             Map main = (Map)object.get("main");
             localInfos.setTemperature(convertKelvinToCelsius((double)main.get("temp")));
-            long value = (long)main.get("humidity");
-            localInfos.setHumidity((float)value);
+            String value = main.get("humidity").toString();
+            localInfos.setHumidity(Float.parseFloat(value));
 
             Map wind = (Map)object.get("wind");
-            double windSpeed = (double) wind.get("speed");
-            localInfos.setWind((float) windSpeed);
+            String windSpeed = wind.get("speed").toString();
+            localInfos.setWind(Float.parseFloat(windSpeed));
 
             JSONArray jsonArray = (JSONArray) object.get("weather");
             Map weather = (Map) jsonArray.iterator().next();

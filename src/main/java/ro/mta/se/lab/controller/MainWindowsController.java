@@ -7,7 +7,9 @@ import ro.mta.se.lab.WeatherUtility;
 import ro.mta.se.lab.model.CityInfo;
 import ro.mta.se.lab.model.WeatherInfos;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class MainWindowsController {
 
@@ -52,11 +54,25 @@ public class MainWindowsController {
     }
 
     @FXML
-    private void cityComboBoxChange(){
+    private void cityComboBoxChange() {
         String currentCity = cityComboBox.getSelectionModel().getSelectedItem();
         String currentCountry = countryComboBox.getSelectionModel().getSelectedItem();
-        WeatherInfos infos = WeatherUtility.searchForInfos(currentCity,currentCountry);
-        iconLabel.setGraphic(new ImageView("http://openweathermap.org/img/w/"+infos.getIcon()+".png"));
+        if (currentCity != null && currentCountry != null) {
+            WeatherInfos infos = WeatherUtility.searchForInfos(currentCity, currentCountry);
+            ImageView img = new ImageView("http://openweathermap.org/img/w/" + infos.getIcon() + ".png");
+            img.setFitHeight(150);
+            img.setFitWidth(150);
+            iconLabel.setGraphic(img);
+            windLabel.setText(infos.getWind() + " km/h");
+            humidityLabel.setText(infos.getHumidity() + " %");
+            cityNameLabel.setText(currentCity);
+            LocalDateTime now = LocalDateTime.now();
+            String day = now.getDayOfWeek().toString().toLowerCase();
+            day = day.substring(0,1).toUpperCase() + day.substring(1);
+            currentDateLabel.setText(day+ "  " +now.getHour()+":"+ now.getMinute());
+            descriptionWeatherLabel.setText(infos.getDescription());
+            temperatureLabel.setText((int)infos.getTemperature() + "");
+        }
     }
 
     @FXML
