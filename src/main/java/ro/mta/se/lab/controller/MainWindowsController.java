@@ -7,6 +7,7 @@ import ro.mta.se.lab.WeatherUtility;
 import ro.mta.se.lab.model.CityInfo;
 import ro.mta.se.lab.model.WeatherInfos;
 
+import java.awt.font.FontRenderContext;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 
@@ -49,7 +50,8 @@ public class MainWindowsController {
         System.out.println("da");
     }
 
-    MainWindowsController(ArrayList<String> listOfCities){
-        
+    public void getCities(ArrayList<CityInfo> listOfCities){
+        cities = new ArrayList<CityInfo>();
+        cities.addAll(listOfCities);
     }
 }
