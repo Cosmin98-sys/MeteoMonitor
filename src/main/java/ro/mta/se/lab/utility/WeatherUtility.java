@@ -16,7 +16,6 @@ public class WeatherUtility {
     static final String baseLink = "https://api.openweathermap.org/data/2.5/weather?";
 
     private static WeatherInfos getInfos(String link) {
-        WeatherInfos localInfos = new WeatherInfos();
         try {
             String finalLink = baseLink + link;
             finalLink = finalLink + "&appid=" + apiToken;
@@ -24,7 +23,7 @@ public class WeatherUtility {
             URL site = new URL(finalLink);
             HttpURLConnection connection = (HttpURLConnection) site.openConnection();
             connection.connect();
-            String line = null;
+            String line;
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             StringBuilder sb = new StringBuilder();
@@ -33,24 +32,12 @@ public class WeatherUtility {
             }
 
             JSONObject object = (JSONObject) JSONValue.parse(sb.toString());
-            Map main = (Map)object.get("main");
-            localInfos.setTemperature(convertKelvinToCelsius((double)main.get("temp")));
-            String value = main.get("humidity").toString();
-            localInfos.setHumidity(Float.parseFloat(value));
-
-            Map wind = (Map)object.get("wind");
-            String windSpeed = wind.get("speed").toString();
-            localInfos.setWind(Float.parseFloat(windSpeed));
-
-            JSONArray jsonArray = (JSONArray) object.get("weather");
-            Map weather = (Map) jsonArray.iterator().next();
-            localInfos.setDescription(((String) weather.get("main")));
-            localInfos.setIcon((String) weather.get("icon"));
+            return Reader.parseJSON(object);
 
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-        return localInfos;
+        return new WeatherInfos();
     }
 
     static public WeatherInfos searchForInfos(String... cityInfos) {
@@ -71,7 +58,5 @@ public class WeatherUtility {
         return getInfos(searchLink);
     }
 
-    private static float convertKelvinToCelsius(double kelvin) {
-        return (float) (kelvin - 273.15);
-    }
+
 }
