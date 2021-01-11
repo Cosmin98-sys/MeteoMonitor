@@ -1,4 +1,4 @@
-package ro.mta.se.lab;
+package ro.mta.se.lab.utility;
 
 import org.json.simple.*;
 import org.json.simple.parser.*;

@@ -1,15 +1,14 @@
 package ro.mta.se.lab.controller;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import ro.mta.se.lab.WeatherUtility;
+import ro.mta.se.lab.utility.WeatherUtility;
 import ro.mta.se.lab.model.CityInfo;
 import ro.mta.se.lab.model.WeatherInfos;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class MainWindowsController {
 
@@ -43,11 +42,11 @@ public class MainWindowsController {
     private ComboBox<String> cityComboBox;
 
     @FXML
-    private void countryComboBoxChange(){
+    private void countryComboBoxChange() {
         cityComboBox.getItems().clear();
         String country = countryComboBox.getSelectionModel().getSelectedItem();
-        for (CityInfo it : cities){
-            if(it.getCountryCode().equals(country)){
+        for ( CityInfo it : cities ) {
+            if (it.getCountryCode().equals(country)) {
                 cityComboBox.getItems().add(it.getCityName());
             }
         }
@@ -68,35 +67,34 @@ public class MainWindowsController {
             cityNameLabel.setText(currentCity);
             LocalDateTime now = LocalDateTime.now();
             String day = now.getDayOfWeek().toString().toLowerCase();
-            day = day.substring(0,1).toUpperCase() + day.substring(1);
-            currentDateLabel.setText(day+ "  " +now.getHour()+":"+ now.getMinute());
+            day = day.substring(0, 1).toUpperCase() + day.substring(1);
+            currentDateLabel.setText(day + ",  " + now.getHour() + ":" + now.getMinute());
             descriptionWeatherLabel.setText(infos.getDescription());
-            temperatureLabel.setText((int)infos.getTemperature() + "");
+            temperatureLabel.setText((int) infos.getTemperature() + "");
         }
     }
 
     @FXML
     private void initialize() {
 
-        for ( CityInfo it:cities ) {
-            if(verifyCountry(countryComboBox,it.getCountryCode()))
+        for ( CityInfo it : cities ) {
+            if (verifyCountry(it.getCountryCode()))
                 countryComboBox.getItems().add(it.getCountryCode());
         }
 
     }
 
-    boolean verifyCountry(ComboBox<String>comboBox,String country){
+    boolean verifyCountry(String country) {
 
-        for ( String it: countryComboBox.getItems()) {
-            if(it.equals(country)){
+        for ( String it : countryComboBox.getItems() ) {
+            if (it.equals(country)) {
                 return false;
             }
         }
-
         return true;
     }
 
-    public MainWindowsController(ArrayList<CityInfo> listOfCities){
+    public MainWindowsController(ArrayList<CityInfo> listOfCities) {
         cities = new ArrayList<>();
         cities.addAll(listOfCities);
     }
