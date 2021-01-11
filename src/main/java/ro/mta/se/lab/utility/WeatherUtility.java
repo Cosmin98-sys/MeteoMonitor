@@ -1,4 +1,4 @@
-package ro.mta.se.lab;
+package ro.mta.se.lab.utility;
 
 import org.json.simple.*;
 import org.json.simple.parser.*;
@@ -35,16 +35,17 @@ public class WeatherUtility {
             JSONObject object = (JSONObject) JSONValue.parse(sb.toString());
             Map main = (Map)object.get("main");
             localInfos.setTemperature(convertKelvinToCelsius((double)main.get("temp")));
-            double value = (double)main.get("temp");
-            localInfos.setHumidity((float)value);
+            String value = main.get("humidity").toString();
+            localInfos.setHumidity(Float.parseFloat(value));
 
             Map wind = (Map)object.get("wind");
-            value = (double) wind.get("speed");
-            localInfos.setWind((float) value);
+            String windSpeed = wind.get("speed").toString();
+            localInfos.setWind(Float.parseFloat(windSpeed));
 
             JSONArray jsonArray = (JSONArray) object.get("weather");
             Map weather = (Map) jsonArray.iterator().next();
-            localInfos.setDescription((String) weather.get("description"));
+            localInfos.setDescription(((String) weather.get("main")));
+            localInfos.setIcon((String) weather.get("icon"));
 
         } catch (IOException ex) {
             System.out.println(ex.getMessage());

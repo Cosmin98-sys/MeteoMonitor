@@ -10,24 +10,24 @@
             <font>
                 <Font size="20.0" />
             </font></Label>
-        <ComboBox layoutX="26.0" layoutY="75.0" prefWidth="150.0" />
+        <ComboBox fx:id="countryComboBox" layoutX="26.0" layoutY="75.0" onAction="#countryComboBoxChange" prefWidth="150.0" />
         <Label layoutX="299.0" layoutY="42.0" text="City:">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
-        <ComboBox layoutX="257.0" layoutY="75.0" prefWidth="150.0" />
-        <Label layoutX="26.0" layoutY="126.0" text="City Name">
+        <ComboBox fx:id="cityComboBox" layoutX="257.0" layoutY="75.0" onAction="#cityComboBoxChange" prefWidth="150.0" />
+        <Label fx:id="cityNameLabel" layoutX="26.0" layoutY="126.0" text="City Name">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
-        <Label layoutX="26.0" layoutY="163.0" text="Date">
+        <Label fx:id="currentDateLabel" layoutX="26.0" layoutY="163.0" text="Date">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
-        <Label layoutX="26.0" layoutY="201.0" text="Description">
+        <Label fx:id="descriptionWeatherLabel" layoutX="26.0" layoutY="201.0" text="Description">
             <font>
                 <Font size="20.0" />
             </font>
@@ -42,24 +42,30 @@
                 <Font size="20.0" />
             </font>
         </Label>
-        <Label layoutX="357.0" layoutY="130.0" text="99%">
+        <Label fx:id="humidityLabel" layoutX="357.0" layoutY="130.0">
             <font>
                 <Font size="18.0" />
             </font>
         </Label>
-        <Label layoutX="318.0" layoutY="168.0" text="100 Km/h">
+        <Label fx:id="windLabel" layoutX="318.0" layoutY="168.0">
             <font>
                 <Font size="18.0" />
             </font>
         </Label>
-        <Label layoutX="63.0" layoutY="278.0" text="21">
+        <Label fx:id="temperatureLabel" layoutX="59.0" layoutY="285.0" text="21">
             <font>
                 <Font size="39.0" />
             </font>
         </Label>
-        <Label layoutX="102.0" layoutY="264.0" nodeOrientation="LEFT_TO_RIGHT" text="ºC">
+        <Label layoutX="98.0" layoutY="271.0" nodeOrientation="LEFT_TO_RIGHT" text="ºC">
             <font>
                 <Font size="18.0" />
             </font></Label>
+      <Label fx:id="iconLabel" layoutX="262.0" layoutY="196.0" prefHeight="150.0" prefWidth="150.0" />
+      <Label layoutX="26.0" layoutY="240.0" text="Temperature">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
