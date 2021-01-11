@@ -3,7 +3,7 @@
 This application uses a file with information about certain cities, form "ID, City Name, Latitude, Longitude, Country Initials". This file must be called ListOfCities and is used to present the available options in the application.
 The application presents the available cities and presents weather information using the OpenWeather API.
 
-Dependencies:
+Dependencies:<br/>
 :trident: File ListOFCities required<br/>
 :trident: Network Connection<br/>
 :trident: Existent informations in first file<br/>
