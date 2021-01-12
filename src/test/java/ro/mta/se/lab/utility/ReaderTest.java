@@ -11,6 +11,14 @@ import java.util.Scanner;
 
 import static org.junit.Assert.*;
 
+/**
+ *
+ * This class is used for testing functionalities existent in class
+ * Reader. Here, the answer for methods readCities and parseJSON
+ * is verified, using files existent in folder TestFiles.
+ *  @author Ciobanu Cosmin-Marian
+ */
+
 public class ReaderTest {
 
     ReaderInterface readerFile;
@@ -26,6 +34,10 @@ public class ReaderTest {
     public void tearDown() throws Exception {
     }
 
+    /**
+     * This method verify if the number of cities read from file
+     * city_test{number}.txt is equal with 3.
+     */
     @Test()
     public void readCities() {
         for ( int i = 1; i <= 2; i++ ) {
@@ -34,6 +46,11 @@ public class ReaderTest {
         }
     }
 
+    /**
+     * In this method is verified if method parseJSON present in
+     * class Reader throws NullPointerException when String received
+     * as parameter is null.
+     */
     @Test(expected = NullPointerException.class)
     public void parseJSONException() {
         try {
@@ -47,11 +64,16 @@ public class ReaderTest {
         }
     }
 
+    /**
+     * In this method is verified if the JSON file with the format name
+     * test{number}.json has humidity and windSpeed equal with the values
+     * from the test{number}-answer.txt.
+     */
     @Test
     public void parseJSON() {
         for ( int i = 1; i <= 5; i++ ) {
             try {
-                File testValueFile = new File("TestFiles/test" + i + "_answear.txt");
+                File testValueFile = new File("TestFiles/test" + i + "_answer.txt");
 
                 Scanner readerAnswear = new Scanner(testValueFile);
                 float humidityTest = readerAnswear.nextFloat();

@@ -1,14 +1,20 @@
 package ro.mta.se.lab;
 
+import ro.mta.se.lab.controller.MainWindowsController;
+import ro.mta.se.lab.utility.Reader;
+import ro.mta.se.lab.utility.ReaderInterface;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import ro.mta.se.lab.controller.MainWindowsController;
-import ro.mta.se.lab.utility.Reader;
-import ro.mta.se.lab.utility.ReaderInterface;
-
 import java.io.IOException;
+
+/**
+ *
+ * This class is the Main class of this project.
+ * It starts JavaFX application.
+ *  @author Ciobanu Cosmin-Marian
+ */
 
 public class Main extends Application {
     static ReaderInterface reader;
