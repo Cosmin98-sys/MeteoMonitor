@@ -8,8 +8,6 @@ Dependencies:<br/>
 :trident: Network Connection<br/>
 :trident: Existent informations in first file<br/>
 
-## SRS & SDD
-
 ## How to use application? :computer: :keyboard:
 Add sets in information in ListOfCities file.
 Start application and chooose an Country and after that an City.
@@ -20,6 +18,9 @@ See the weather for that city and have some fun! :yum:
 Use IntelliJ and run all tests already implemented
 Use IntelliJ to run tests already implemented using Mockito.
 Another way to test can be done by adding a variety of information to the city file.
+
+## Language used :rainbow:
+JAVA JDK 15
 
 ## Team
 Ciobanu Cosmin :man_student:
