@@ -1,7 +1,6 @@
 package ro.mta.se.lab.utility;
 
 import org.json.simple.*;
-import org.json.simple.parser.*;
 import ro.mta.se.lab.model.WeatherInfos;
 
 import java.io.BufferedReader;
@@ -9,7 +8,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Map;
 
 public class WeatherUtility {
     static final String apiToken = "f38c2313a44bec9a3dcf0ba183189e70";

@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import ro.mta.se.lab.controller.MainWindowsController;
 import ro.mta.se.lab.utility.Reader;
+
 import java.io.IOException;
 
 public class Main extends Application {

@@ -1,10 +1,11 @@
 package ro.mta.se.lab.utility;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+
 import ro.mta.se.lab.model.CityInfo;
 import ro.mta.se.lab.model.WeatherInfos;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

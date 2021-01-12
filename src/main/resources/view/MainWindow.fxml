@@ -52,12 +52,12 @@
                 <Font size="18.0" />
             </font>
         </Label>
-        <Label fx:id="temperatureLabel" layoutX="59.0" layoutY="285.0" text="21">
+        <Label fx:id="temperatureLabel" layoutX="59.0" layoutY="285.0" text=" 0" textFill="#2cff00">
             <font>
                 <Font size="39.0" />
             </font>
         </Label>
-        <Label layoutX="98.0" layoutY="271.0" nodeOrientation="LEFT_TO_RIGHT" text="ºC">
+        <Label layoutX="98.0" layoutY="271.0" nodeOrientation="LEFT_TO_RIGHT" text="ºC" textFill="#1e00ff">
             <font>
                 <Font size="18.0" />
             </font></Label>
