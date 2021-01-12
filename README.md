@@ -9,15 +9,15 @@ Dependencies:<br/>
 :trident: Existent informations in first file<br/>
 
 ## How to use application? :computer: :keyboard:
-Add sets in information in ListOfCities file.
-Start application and chooose an Country and after that an City.
-Make sure you have network connection.
-See the weather for that city and have some fun! :yum:
+Add sets in information in ListOfCities file.<br/>
+Start application and chooose an Country and after that an City.<br/>
+Make sure you have network connection.<br/>
+See the weather for that city and have some fun! :yum:<br/>
 
 ## Testing
-Use IntelliJ and run all tests already implemented</br>
-Use IntelliJ to run tests already implemented using Mockito.</br>
-Another way to test can be done by adding a variety of information to the city file.
+Use IntelliJ and run all tests already implemented.<br/>
+Use IntelliJ to run tests already implemented using Mockito.<br/>
+Another way to test can be done by adding a variety of information to the city file.<br/>
 
 ## Language used :rainbow:
 JAVA JDK 15
