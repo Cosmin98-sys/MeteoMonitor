@@ -15,8 +15,8 @@ Make sure you have network connection.
 See the weather for that city and have some fun! :yum:
 
 ## Testing
-Use IntelliJ and run all tests already implemented
-Use IntelliJ to run tests already implemented using Mockito.
+Use IntelliJ and run all tests already implemented</br>
+Use IntelliJ to run tests already implemented using Mockito.</br>
 Another way to test can be done by adding a variety of information to the city file.
 
 ## Language used :rainbow:
