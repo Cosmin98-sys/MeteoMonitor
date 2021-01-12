@@ -7,13 +7,15 @@ import javafx.scene.image.ImageView;
 import ro.mta.se.lab.utility.WeatherUtility;
 import ro.mta.se.lab.model.CityInfo;
 import ro.mta.se.lab.model.WeatherInfos;
+import ro.mta.se.lab.utility.WeatherUtilityInterface;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class MainWindowsController {
 
     private ArrayList<CityInfo> cities;
-
+    private WeatherUtilityInterface weatherUtility;
     @FXML
     private Label iconLabel;
 
@@ -57,7 +59,7 @@ public class MainWindowsController {
         String currentCity = cityComboBox.getSelectionModel().getSelectedItem();
         String currentCountry = countryComboBox.getSelectionModel().getSelectedItem();
         if (currentCity != null && currentCountry != null) {
-            WeatherInfos infos = WeatherUtility.searchForInfos(currentCity, currentCountry);
+            WeatherInfos infos = weatherUtility.searchForInfos(currentCity, currentCountry);
             ImageView img = new ImageView("http://openweathermap.org/img/w/" + infos.getIcon() + ".png");
             img.setFitHeight(150);
             img.setFitWidth(150);
@@ -97,5 +99,6 @@ public class MainWindowsController {
     public MainWindowsController(ArrayList<CityInfo> listOfCities) {
         cities = new ArrayList<>();
         cities.addAll(listOfCities);
+        weatherUtility = new WeatherUtility();
     }
 }
