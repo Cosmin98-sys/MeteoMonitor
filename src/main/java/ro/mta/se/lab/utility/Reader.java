@@ -12,9 +12,9 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Reader {
+public class Reader implements ReaderInterface {
 
-    static public ArrayList<CityInfo> readCities(String filename){
+     public ArrayList<CityInfo> readCities(String filename){
         ArrayList<CityInfo> cities = new ArrayList<CityInfo>();
         try {
             File cityFile = new File(filename);
@@ -35,7 +35,7 @@ public class Reader {
         return cities;
     }
 
-    static public WeatherInfos parseJSON(JSONObject object){
+    public WeatherInfos parseJSON(JSONObject object){
         WeatherInfos localInfos = new WeatherInfos();
 
         Map main = (Map)object.get("main");
@@ -55,7 +55,7 @@ public class Reader {
         return localInfos;
     }
 
-    private static float convertKelvinToCelsius(double kelvin) {
+    private float convertKelvinToCelsius(double kelvin) {
         return (float) (kelvin - 273.15);
     }
 

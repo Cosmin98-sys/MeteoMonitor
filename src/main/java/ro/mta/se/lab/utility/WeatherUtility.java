@@ -9,11 +9,13 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class WeatherUtility {
+public class WeatherUtility implements WeatherUtilityInterface {
     static final String apiToken = "f38c2313a44bec9a3dcf0ba183189e70";
     static final String baseLink = "https://api.openweathermap.org/data/2.5/weather?";
+    ReaderInterface readerFile;
 
-    private static WeatherInfos getInfos(String link) {
+    private WeatherInfos getInfos(String link) {
+        readerFile = new Reader();
         try {
             String finalLink = baseLink + link;
             finalLink = finalLink + "&appid=" + apiToken;
@@ -30,7 +32,7 @@ public class WeatherUtility {
             }
 
             JSONObject object = (JSONObject) JSONValue.parse(sb.toString());
-            return Reader.parseJSON(object);
+            return readerFile.parseJSON(object);
 
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
@@ -38,7 +40,7 @@ public class WeatherUtility {
         return new WeatherInfos();
     }
 
-    static public WeatherInfos searchForInfos(String... cityInfos) {
+    public WeatherInfos searchForInfos(String... cityInfos) {
         String searchLink = "q=" + cityInfos[0];
         if (cityInfos.length == 2) {
             searchLink = searchLink + "," + cityInfos[1];
@@ -46,15 +48,14 @@ public class WeatherUtility {
         return getInfos(searchLink);
     }
 
-    static public WeatherInfos searchForInfos(int id) {
+    public WeatherInfos searchForInfos(int id) {
         String searchLink = "id=" + id;
         return getInfos(searchLink);
     }
 
-    static public WeatherInfos searchForInfos(double lat, double longit) {
+    public WeatherInfos searchForInfos(double lat, double longit) {
         String searchLink = "lat=" + lat + "&lon=" + longit;
         return getInfos(searchLink);
     }
-
 
 }

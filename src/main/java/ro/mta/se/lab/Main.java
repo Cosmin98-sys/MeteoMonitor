@@ -6,11 +6,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import ro.mta.se.lab.controller.MainWindowsController;
 import ro.mta.se.lab.utility.Reader;
+import ro.mta.se.lab.utility.ReaderInterface;
 
 import java.io.IOException;
 
 public class Main extends Application {
+    static ReaderInterface reader;
     public static void main(String[] args) {
+        reader = new Reader();
         launch(args);
     }
 
@@ -18,7 +21,7 @@ public class Main extends Application {
 
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/MainWindow.fxml"));
-            loader.setControllerFactory(c -> new MainWindowsController(Reader.readCities("ListOfCities")));
+            loader.setControllerFactory(c -> new MainWindowsController(reader.readCities("ListOfCities")));
             primaryStage.setScene(new Scene(loader.load()));
             primaryStage.setTitle("Weather Monitor");
             primaryStage.setResizable(false);

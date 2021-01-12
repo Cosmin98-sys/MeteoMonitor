@@ -13,9 +13,12 @@ import static org.junit.Assert.*;
 
 public class ReaderTest {
 
+    ReaderInterface readerFile;
+
     @Before
     public void setUp() throws Exception {
 
+        readerFile = new Reader();
 
     }
 
@@ -27,7 +30,7 @@ public class ReaderTest {
     public void readCities() {
         for ( int i = 1; i <= 2; i++ ) {
             String testValueFile = "TestFiles/city_test" + i + ".txt";
-            assertEquals(String.valueOf(Reader.readCities(testValueFile).size()), "3");
+            assertEquals(String.valueOf(readerFile.readCities(testValueFile).size()), "3");
         }
     }
 
@@ -38,7 +41,7 @@ public class ReaderTest {
             Scanner reader = new Scanner(cityFile);
             String contain = reader.nextLine();
             JSONObject objectForTest = (JSONObject) JSONValue.parse(contain);
-            Reader.parseJSON(objectForTest);
+            readerFile.parseJSON(objectForTest);
         }catch (FileNotFoundException e) {
             System.out.println("File not existent");
         }
@@ -59,8 +62,8 @@ public class ReaderTest {
                 String contain = reader.nextLine();
                 JSONObject objectForTest = (JSONObject) JSONValue.parse(contain);
 
-                assertEquals(String.valueOf(Reader.parseJSON(objectForTest).getHumidity()), String.valueOf(humidityTest));
-                assertEquals(String.valueOf(Reader.parseJSON(objectForTest).getWind()), String.valueOf(windSpeedTest));
+                assertEquals(String.valueOf(readerFile.parseJSON(objectForTest).getHumidity()), String.valueOf(humidityTest));
+                assertEquals(String.valueOf(readerFile.parseJSON(objectForTest).getWind()), String.valueOf(windSpeedTest));
 
             } catch (FileNotFoundException e) {
                 System.out.println("File not existent");
