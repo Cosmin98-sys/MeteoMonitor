@@ -50,4 +50,15 @@ public class WeatherInfos {
     public String getDescription() {
         return description;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        WeatherInfos object = (WeatherInfos) obj;
+        if(object.getIcon().equals(this.icon) && object.getDescription().equals(this.description)
+           && object.getHumidity() == this.humidity && object.getTemperature() == this.temperature
+           && object.getWind() == this.wind){
+            return true;
+        }
+        return false;
+    }
 }
