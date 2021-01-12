@@ -3,7 +3,6 @@ package ro.mta.se.lab.utility;
 
 import ro.mta.se.lab.model.CityInfo;
 import ro.mta.se.lab.model.WeatherInfos;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import java.io.File;
@@ -12,8 +11,23 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ *
+ * This class is used as a utility during program execution
+ * and has implemented city read functionality in the input
+ * file and parsing JSON files received from WeatherAPI.
+ *  @author Ciobanu Cosmin-Marian
+ */
+
+
 public class Reader implements ReaderInterface {
 
+    /**
+     * This function is used for reading all city information present in
+     * the file passed as argument.
+     * @param filename: name of the file in which you can find all information about cities
+     * @return ArrayList<CityInfo>: returns a list of CityInfo in which is saved everything from the input file
+     */
      public ArrayList<CityInfo> readCities(String filename){
         ArrayList<CityInfo> cities = new ArrayList<CityInfo>();
         try {
@@ -35,6 +49,12 @@ public class Reader implements ReaderInterface {
         return cities;
     }
 
+    /**
+     * This function takes a JSON object and extracts all data which is needed
+     * in a WeatherInfos object.
+     * @param object: is the JSON object which is going to be parsed
+     * @return a WeatherInfos object with all information needed about weather
+     */
     public WeatherInfos parseJSON(JSONObject object){
         WeatherInfos localInfos = new WeatherInfos();
 
@@ -55,6 +75,11 @@ public class Reader implements ReaderInterface {
         return localInfos;
     }
 
+    /**
+     * Takes a temperature in Kelvin and transforms it in Celsius
+     * @param kelvin: kelvin value for temperature
+     * @return celsius value for temperature
+     */
     private float convertKelvinToCelsius(double kelvin) {
         return (float) (kelvin - 273.15);
     }

@@ -1,16 +1,23 @@
 package ro.mta.se.lab.utility;
 
+import ro.mta.se.lab.model.CityInfo;
+import ro.mta.se.lab.model.WeatherInfos;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-import ro.mta.se.lab.model.CityInfo;
-import ro.mta.se.lab.model.WeatherInfos;
-
 import java.util.ArrayList;
-
 import static junit.framework.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+
+/**
+ *
+ * This class is used for testing functionalities existent in class
+ * WeatherUtility. Here, the answer for method searchForInfos in all
+ * four types of calling is verified. Both connection reach and result
+ * return are verified.
+ *  @author Ciobanu Cosmin-Marian
+ */
 
 public class WeatherUtilityTest {
 
@@ -24,6 +31,10 @@ public class WeatherUtilityTest {
         weatherUtility = new WeatherUtility();
     }
 
+    /**
+     * In this method is verified if class WeatherUtility can reach
+     * OpenWeather API in all four cases using two city examples.
+     */
     @Test
     public void verifyConnection() {
 
@@ -49,6 +60,11 @@ public class WeatherUtilityTest {
         }
     }
 
+    /**
+     * In this method are used the same two cities as in the other method
+     * and for all four results is verified if the JSON file returned is
+     * the same.
+     */
     @Test
     public void verifyOutput(){
 
@@ -67,9 +83,9 @@ public class WeatherUtilityTest {
             WeatherInfos dataWithThirdMethod = weatherUtility.searchForInfos(it.getId());
             WeatherInfos dataWithFourthMethod = weatherUtility.searchForInfos(it.getLatitude(), it.getLongitude());
 
-            assertTrue(dataWithFirstMethod.equals(dataWithSecondMethod));
-            assertTrue(dataWithFirstMethod.equals(dataWithThirdMethod));
-            assertTrue(dataWithFirstMethod.equals(dataWithFourthMethod));
+            assertEquals(dataWithFirstMethod, dataWithSecondMethod);
+            assertEquals(dataWithFirstMethod, dataWithThirdMethod);
+            assertEquals(dataWithFirstMethod, dataWithFourthMethod);
         }
     }
 }

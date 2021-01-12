@@ -1,6 +1,15 @@
 package ro.mta.se.lab.model;
 
+/**
+ *
+ * This class is used to save all the information
+ * that we want to save about the weather in a city
+ * and that we want to use for display in the graphical interface.
+ *  @author Ciobanu Cosmin-Marian
+ */
+
 public class WeatherInfos {
+
     private float humidity;
     private float wind;
     private float temperature;
@@ -9,6 +18,14 @@ public class WeatherInfos {
 
     public WeatherInfos(){}
 
+    /**
+     * <b>WeatherInfos</b> class constructor
+     * @param humidity: humidity specific for chosen city
+     * @param wind: wind specific for chosen city
+     * @param temperature: temperature specific for chosen city in Kelvin
+     * @param description: weather description specific for chosen city
+     * @param icon: icon specific to the weather for chosen city
+     */
     public WeatherInfos(float humidity, float wind, float temperature, String description, String icon) {
         this.humidity = humidity;
         this.wind = wind;
@@ -51,6 +68,12 @@ public class WeatherInfos {
         return description;
     }
 
+    /**
+     *
+     * Here is the Override of function equals because
+     * we need to compare in our program two classes of
+     * this type.
+     */
     @Override
     public boolean equals(Object obj) {
         WeatherInfos object = (WeatherInfos) obj;
