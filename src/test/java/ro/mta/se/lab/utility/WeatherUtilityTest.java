@@ -8,8 +8,7 @@ import ro.mta.se.lab.model.WeatherInfos;
 
 import java.util.ArrayList;
 
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertNotNull;
+import static junit.framework.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -68,9 +67,9 @@ public class WeatherUtilityTest {
             WeatherInfos dataWithThirdMethod = weatherUtility.searchForInfos(it.getId());
             WeatherInfos dataWithFourthMethod = weatherUtility.searchForInfos(it.getLatitude(), it.getLongitude());
 
-            assertEquals(dataWithFirstMethod, dataWithSecondMethod);
-            assertEquals(dataWithFirstMethod, dataWithThirdMethod);
-            assertEquals(dataWithFirstMethod, dataWithFourthMethod);
+            assertTrue(dataWithFirstMethod.equals(dataWithSecondMethod));
+            assertTrue(dataWithFirstMethod.equals(dataWithThirdMethod));
+            assertTrue(dataWithFirstMethod.equals(dataWithFourthMethod));
         }
     }
 }
