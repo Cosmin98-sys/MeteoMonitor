@@ -9,23 +9,24 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-    /**
-     *  This class represents the controller for the MainWindow class,
-     *  and in it are present all the functionalities and all the methods
-     *  of processing the inputs received from the user.
-     *
-     *  @author Ciobanu Cosmin-Marian
-     */
+/**
+ * This class represents the controller for the MainWindow class,
+ * and in it are present all the functionalities and all the methods
+ * of processing the inputs received from the user.
+ *
+ * @author Ciobanu Cosmin-Marian
+ */
 
 public class MainWindowsController {
     /**
      * Members of class </b>MainWindowsController</>
      * <i>cities :</i> all cities that have been read and initialized from the input file
      * <i>weatherUtility :</i> instance of class WeatherUtility used for retrieving weather status
-     *
+     * <p>
      * {word}Label are all graphic elements from our user view interface
      * the last 2 comboBoxes are graphic elements too
      */
@@ -78,9 +79,9 @@ public class MainWindowsController {
     }
 
     /**
-     *  This method is used for the city-specific comboBox and has the role of
-     *  displaying all the data received from the utility that deals with
-     *  receiving weather information, but also of requesting it from it.
+     * This method is used for the city-specific comboBox and has the role of
+     * displaying all the data received from the utility that deals with
+     * receiving weather information, but also of requesting it from it.
      */
     @FXML
     private void cityComboBoxChange() {
@@ -127,7 +128,6 @@ public class MainWindowsController {
     }
 
     /**
-     *
      * @param country: the current country code to be added to the comboBox
      * @return true if it is not displayed already or false if it is
      */
@@ -143,6 +143,7 @@ public class MainWindowsController {
 
     /**
      * <b>MainWindowsController</b> class constructor
+     *
      * @param listOfCities: all cities that were read from the file
      */
     public MainWindowsController(ArrayList<CityInfo> listOfCities) {

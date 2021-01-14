@@ -5,6 +5,7 @@ import org.json.simple.JSONValue;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -12,11 +13,11 @@ import java.util.Scanner;
 import static org.junit.Assert.*;
 
 /**
- *
  * This class is used for testing functionalities existent in class
  * Reader. Here, the answer for methods readCities and parseJSON
  * is verified, using files existent in folder TestFiles.
- *  @author Ciobanu Cosmin-Marian
+ *
+ * @author Ciobanu Cosmin-Marian
  */
 
 public class ReaderTest {
@@ -59,7 +60,7 @@ public class ReaderTest {
             String contain = reader.nextLine();
             JSONObject objectForTest = (JSONObject) JSONValue.parse(contain);
             readerFile.parseJSON(objectForTest);
-        }catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             System.out.println("File not existent");
         }
     }

@@ -2,6 +2,7 @@ package ro.mta.se.lab.utility;
 
 import ro.mta.se.lab.model.WeatherInfos;
 import org.json.simple.*;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,11 +10,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- *
  * This class is used to communicate with OpenWeather API
  * and to receive all information about weather for the city
  * for which is needed.
- *  @author Ciobanu Cosmin-Marian
+ *
+ * @author Ciobanu Cosmin-Marian
  */
 
 public class WeatherUtility implements WeatherUtilityInterface {
@@ -32,6 +33,7 @@ public class WeatherUtility implements WeatherUtilityInterface {
      * and reads information provided by this API.
      * After this, it transforms it in JSON file and send it
      * to parser.
+     *
      * @param link: link from which we need to download weather information
      * @return WeatherInfos object with weather information
      */
@@ -64,6 +66,7 @@ public class WeatherUtility implements WeatherUtilityInterface {
     /**
      * Function used for searching on OpenWeather API using
      * city name alone or with country code
+     *
      * @param cityInfos: you can pass to this function city name alone or with country code
      * @return WeatherInfos object with weather information
      */
@@ -74,9 +77,11 @@ public class WeatherUtility implements WeatherUtilityInterface {
         }
         return getInfos(searchLink);
     }
+
     /**
      * Function used for searching on OpenWeather API using
      * id of the city.
+     *
      * @param id: id of the city specific to OpenWeather
      * @return WeatherInfos object with weather information
      */
@@ -88,7 +93,8 @@ public class WeatherUtility implements WeatherUtilityInterface {
     /**
      * Function used for searching on OpenWeather API using
      * latitude and longitude of the city.
-     * @param lat: latitude of the city
+     *
+     * @param lat:    latitude of the city
      * @param longit: longitude of the city
      * @return WeatherInfos object with weather information
      */
