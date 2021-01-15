@@ -62,7 +62,8 @@ public class Reader implements ReaderInterface {
         WeatherInfos localInfos = new WeatherInfos();
 
         Map main = (Map) object.get("main");
-        localInfos.setTemperature(convertKelvinToCelsius((double) main.get("temp")));
+        String tempValue = main.get("temp").toString();
+        localInfos.setTemperature(convertKelvinToCelsius(Double.parseDouble(tempValue)));
         String value = main.get("humidity").toString();
         localInfos.setHumidity(Float.parseFloat(value));
 

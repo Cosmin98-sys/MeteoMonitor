@@ -1,5 +1,6 @@
 package ro.mta.se.lab.controller;
 
+import ro.mta.se.lab.Logger;
 import ro.mta.se.lab.utility.WeatherUtility;
 import ro.mta.se.lab.model.CityInfo;
 import ro.mta.se.lab.model.WeatherInfos;
@@ -10,6 +11,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
+import javax.security.auth.login.LoginException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -95,6 +97,7 @@ public class MainWindowsController {
         String currentCountry = countryComboBox.getSelectionModel().getSelectedItem();
         if (currentCity != null && currentCountry != null) { //if both of them exists
             WeatherInfos infos = weatherUtility.searchForInfos(currentCity, currentCountry); //search for weather information
+            Logger.logEvent(currentCity,currentCountry);
             ImageView img = new ImageView("http://openweathermap.org/img/w/" + infos.getIcon() + ".png"); //show weather's icon
             img.setFitHeight(150);
             img.setFitWidth(150);
