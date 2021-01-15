@@ -5,18 +5,20 @@ import ro.mta.se.lab.model.WeatherInfos;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
+
 import java.util.ArrayList;
+
 import static junit.framework.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 /**
- *
  * This class is used for testing functionalities existent in class
  * WeatherUtility. Here, the answer for method searchForInfos in all
  * four types of calling is verified. Both connection reach and result
  * return are verified.
- *  @author Ciobanu Cosmin-Marian
+ *
+ * @author Ciobanu Cosmin-Marian
  */
 
 public class WeatherUtilityTest {
@@ -40,13 +42,13 @@ public class WeatherUtilityTest {
 
         readerFile = mock(Reader.class);
         ArrayList<CityInfo> listOfCities = new ArrayList<>();
-        CityInfo cityInfo1 = new CityInfo(894701,"Bulawayo",-20.150,28.583,"ZW");
+        CityInfo cityInfo1 = new CityInfo(894701, "Bulawayo", -20.150, 28.583, "ZW");
         listOfCities.add(cityInfo1);
-        CityInfo cityInfo2 = new CityInfo(2193733,"Auckland",-36.867,174.767,"NZ");
+        CityInfo cityInfo2 = new CityInfo(2193733, "Auckland", -36.867, 174.767, "NZ");
         listOfCities.add(cityInfo2);
         when(readerFile.readCities("ListOfCities.txt")).thenReturn(listOfCities);
 
-        for(CityInfo it:listOfCities) {
+        for ( CityInfo it : listOfCities ) {
 
             WeatherInfos dataWithFirstMethod = weatherUtility.searchForInfos(it.getCityName());
             WeatherInfos dataWithSecondMethod = weatherUtility.searchForInfos(it.getCityName(), it.getCountryCode());
@@ -66,17 +68,17 @@ public class WeatherUtilityTest {
      * the same.
      */
     @Test
-    public void verifyOutput(){
+    public void verifyOutput() {
 
         readerFile = mock(Reader.class);
         ArrayList<CityInfo> listOfCities = new ArrayList<>();
-        CityInfo cityInfo1 = new CityInfo(894701,"Bulawayo",-20.150,28.583,"ZW");
+        CityInfo cityInfo1 = new CityInfo(894701, "Bulawayo", -20.150, 28.583, "ZW");
         listOfCities.add(cityInfo1);
-        CityInfo cityInfo2 = new CityInfo(2193733,"Auckland",-36.867,174.767,"NZ");
+        CityInfo cityInfo2 = new CityInfo(2193733, "Auckland", -36.867, 174.767, "NZ");
         listOfCities.add(cityInfo2);
         when(readerFile.readCities("ListOfCities.txt")).thenReturn(listOfCities);
 
-        for(CityInfo it:listOfCities) {
+        for ( CityInfo it : listOfCities ) {
 
             WeatherInfos dataWithFirstMethod = weatherUtility.searchForInfos(it.getCityName());
             WeatherInfos dataWithSecondMethod = weatherUtility.searchForInfos(it.getCityName(), it.getCountryCode());

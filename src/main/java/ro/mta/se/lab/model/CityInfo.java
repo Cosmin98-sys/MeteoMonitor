@@ -1,11 +1,11 @@
 package ro.mta.se.lab.model;
 
 /**
+ * This class is used to save the five specific
+ * features of each city (id name latitude longitude country code).
+ * All of those values are visible in the input file.
  *
- *  This class is used to save the five specific
- *  features of each city (id name latitude longitude country code).
- *  All of those values are visible in the input file.
- *  @author Ciobanu Cosmin-Marian
+ * @author Ciobanu Cosmin-Marian
  */
 
 public class CityInfo {
@@ -17,10 +17,11 @@ public class CityInfo {
 
     /**
      * <b>CityInfo</b> class constructor
-     * @param id: id of the city which can pe found on WeatherAPI website
-     * @param cityName: name of the city
-     * @param latitude: latitude of the city
-     * @param longitude: longitude of the city
+     *
+     * @param id:          id of the city which can pe found on WeatherAPI website
+     * @param cityName:    name of the city
+     * @param latitude:    latitude of the city
+     * @param longitude:   longitude of the city
      * @param countryCode: country code specific to country in which is this City
      */
     public CityInfo(int id, String cityName, double latitude, double longitude, String countryCode) {

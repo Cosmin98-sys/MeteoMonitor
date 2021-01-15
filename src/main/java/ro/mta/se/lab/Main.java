@@ -7,17 +7,19 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 
 /**
- *
  * This class is the Main class of this project.
  * It starts JavaFX application.
- *  @author Ciobanu Cosmin-Marian
+ *
+ * @author Ciobanu Cosmin-Marian
  */
 
 public class Main extends Application {
     static ReaderInterface reader;
+
     public static void main(String[] args) {
         reader = new Reader();
         launch(args);
